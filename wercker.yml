@@ -29,5 +29,6 @@ deploy:
       packages: git ssh-client
     - lukevivier/gh-pages@0.2.1:
       token: $GIT_TOKEN
-      domain: code4rain.github.io
+      domain: github.com
+      domain: code4rain/code4rain.github.io
       basedir: public
