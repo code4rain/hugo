@@ -1,6 +1,6 @@
 baseurl = "code4rain.github.io"
-title = "Alex Kyoungdon Jang's Blog'
-author = "Alex kyoungodn Jang'
+title = "Alex Kyoungdon Jang's Blog"
+author = "Alex kyoungodn Jang"
 # Shown in the side menu
 copyright = "&copy; 2016. All rights reserved."
 canonifyurls = true
