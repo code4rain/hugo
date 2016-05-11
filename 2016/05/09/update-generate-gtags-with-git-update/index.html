@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.15" />
+
+  <title>Update/Generate GTAGS With Git Update &middot; Alex Kyoungdon Jang&#39;s Blog</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="code4rain.github.io/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="code4rain.github.io/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="code4rain.github.io/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="code4rain.github.io/code4rain.github.ioimg/favicon.ico" type="image/x-icon" />
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="code4rain.github.io/">Blackburn</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="code4rain.github.io/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="code4rain.github.io/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="code4rain.github.io/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/code4rain" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Update/Generate GTAGS With Git Update</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>09 May 2016, 03:07</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="code4rain.github.io/code4rain.github.iotags/git">git</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="code4rain.github.io/code4rain.github.iotags/gtags">gtags</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="code4rain.github.io/code4rain.github.iotags/gnu">gnu</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  
+
+<p>Tumblr에 작성했던 내용을 옮겨왔습니다. 기존에는 vi와 cscope를 활용해서 tag를 관리하다가 gnu에서 만든 global(gtags)를 알게되서 이를 활용할 수 있는 방법을 찾아보던 중에 ctags와 git을 활용하는 방법이 있어 이를 개선해서 gtags용으로 변경한 방법을 공유합니다.</p>
+
+<h1 id="why-gtags-gnu-global-https-www-gnu-org-software-global:fff0c5bc802c255c2966b9031d8ebf21">Why GTAGS(<a href="https://www.gnu.org/software/global/">GNU Global</a>)?</h1>
+
+<ul>
+<li>Find better than ctags</li>
+<li>Find faster than ctags/cscope</li>
+<li>Build faster thant ctags/cscope</li>
+<li>Integrate better with emacs</li>
+</ul>
+
+<h1 id="why-git-and-gtags:fff0c5bc802c255c2966b9031d8ebf21">Why git and gtags</h1>
+
+<ul>
+<li>git is good scm tool used everywhere :)</li>
+<li>gtags made good reference with many languages</li>
+<li>git only maintains original source code</li>
+<li>gtags can update partially - git use diff for commit!</li>
+</ul>
+
+<h1 id="how-to-setup:fff0c5bc802c255c2966b9031d8ebf21">How to setup</h1>
+
+<ol>
+<li>Instatll git and gnu global(gtags) to your system</li>
+<li>make <code>~/.git_template/hooks</code> directory</li>
+<li>move directory: <code>cd ~/.git_template/hooks</code></li>
+<li>make <code>gtags</code> file include below contents
+<script src="https://gist.github.com/code4rain/6934e4c29163f4f7e04e286db26e890a.js"></script></li>
+<li>make <code>post-checkout</code>, <code>post-commit</code>, <code>post-merge</code> as below (same contents)
+<script src="https://gist.github.com/code4rain/3104edb17699948ab829314bfce23708.js"></script></li>
+<li>make <code>post-rewrite</code> as below
+<script src="https://gist.github.com/code4rain/66ac28c0b4256308808a351d71d1aed0.js"></script></li>
+<li>run below command to add default git template.
+<script src="https://gist.github.com/code4rain/23f3217d2e784bc18e662ec7bf3f549f.js"></script></li>
+</ol>
+
+<p>refer from <a href="http://tbaggery.com/2011/08/08/effortless-ctags-with-git.html">Effortless Ctags with Git</a></p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="code4rain.github.io/code4rain.github.io/2016/05/09/posting-to-tumblr-with-emacs/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="code4rain.github.io/code4rain.github.io/2016/05/09/posting-to-tumblr-with-emacs/">Posting to Tumblr With Emacs</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="code4rain.github.io/code4rain.github.io/2016/05/09/scripts-for-jekyll-and-octopress/">Scripts for Jekyll and Octopress</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="code4rain.github.io/code4rain.github.io/2016/05/09/scripts-for-jekyll-and-octopress/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'code4rainblog';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="code4rain.github.io/code4rain.github.iojs/ui.js"></script>
+
+
+
+
+</body>
+</html>
+

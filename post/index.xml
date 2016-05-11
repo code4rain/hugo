@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Alex Kyoungdon Jang&#39;s Blog</title>
+    <link>code4rain.github.io/post/</link>
+    <description>Recent content in Posts on Alex Kyoungdon Jang&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Mon, 09 May 2016 04:11:32 +0000</lastBuildDate>
+    <atom:link href="code4rain.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Scripts for Jekyll and Octopress</title>
+      <link>/code4rain.github.io/2016/05/09/scripts-for-jekyll-and-octopress/</link>
+      <pubDate>Mon, 09 May 2016 04:11:32 +0000</pubDate>
+      
+      <guid>/code4rain.github.io/2016/05/09/scripts-for-jekyll-and-octopress/</guid>
+      <description>&lt;p&gt;기존에 사용하던 octopress의 version 3가 개발되면서 동작 방식이 변경되었습니다. 기존에는 jekyll을 base로 추가적인 기능을 넣는 방식으로 개발이 되었지만 version 3에서는 jekyll을 설치하고 octopress를 추가적으로 설치하여 jekyll을 좀더 편하게 사용할 수 있는 방향으로 개발되고 있습니다.
+ 이와 동시에 기존에 사용하던 &lt;code&gt;rake&lt;/code&gt;류의 command가 모두 &lt;code&gt;octopress&lt;/code&gt;로 시작되는 command로 변경이 되어서 기존에 쓰던 script들을 사용할 수 없게 되었습니다.
+ 이를 개선하기 위해서 새로 만든 스크립트를 공유하고자 합니다~&lt;/p&gt;
+
+&lt;p&gt;Post를 새로 작성하는 경우,
+title을 입력하면 emacsclient로 해당 파일을 열어줍니다.
+&lt;script src=&#34;https://gist.github.com/code4rain/717c4900d5b6c6fd7cc6fe9879fec420.js&#34;&gt;&lt;/script&gt;
+작성된 post를 github에 반영하고, 원본 소스 파일도 upload합니다.
+&lt;script src=&#34;https://gist.github.com/code4rain/17b4b134919d3132ff1f9258fff71d55.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Update/Generate GTAGS With Git Update</title>
+      <link>/code4rain.github.io/2016/05/09/update-generate-gtags-with-git-update/</link>
+      <pubDate>Mon, 09 May 2016 03:07:24 +0000</pubDate>
+      
+      <guid>/code4rain.github.io/2016/05/09/update-generate-gtags-with-git-update/</guid>
+      <description>
+
+&lt;p&gt;Tumblr에 작성했던 내용을 옮겨왔습니다. 기존에는 vi와 cscope를 활용해서 tag를 관리하다가 gnu에서 만든 global(gtags)를 알게되서 이를 활용할 수 있는 방법을 찾아보던 중에 ctags와 git을 활용하는 방법이 있어 이를 개선해서 gtags용으로 변경한 방법을 공유합니다.&lt;/p&gt;
+
+&lt;h1 id=&#34;why-gtags-gnu-global-https-www-gnu-org-software-global:fff0c5bc802c255c2966b9031d8ebf21&#34;&gt;Why GTAGS(&lt;a href=&#34;https://www.gnu.org/software/global/&#34;&gt;GNU Global&lt;/a&gt;)?&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Find better than ctags&lt;/li&gt;
+&lt;li&gt;Find faster than ctags/cscope&lt;/li&gt;
+&lt;li&gt;Build faster thant ctags/cscope&lt;/li&gt;
+&lt;li&gt;Integrate better with emacs&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;why-git-and-gtags:fff0c5bc802c255c2966b9031d8ebf21&#34;&gt;Why git and gtags&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;git is good scm tool used everywhere :)&lt;/li&gt;
+&lt;li&gt;gtags made good reference with many languages&lt;/li&gt;
+&lt;li&gt;git only maintains original source code&lt;/li&gt;
+&lt;li&gt;gtags can update partially - git use diff for commit!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;how-to-setup:fff0c5bc802c255c2966b9031d8ebf21&#34;&gt;How to setup&lt;/h1&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Instatll git and gnu global(gtags) to your system&lt;/li&gt;
+&lt;li&gt;make &lt;code&gt;~/.git_template/hooks&lt;/code&gt; directory&lt;/li&gt;
+&lt;li&gt;move directory: &lt;code&gt;cd ~/.git_template/hooks&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;make &lt;code&gt;gtags&lt;/code&gt; file include below contents
+&lt;script src=&#34;https://gist.github.com/code4rain/6934e4c29163f4f7e04e286db26e890a.js&#34;&gt;&lt;/script&gt;&lt;/li&gt;
+&lt;li&gt;make &lt;code&gt;post-checkout&lt;/code&gt;, &lt;code&gt;post-commit&lt;/code&gt;, &lt;code&gt;post-merge&lt;/code&gt; as below (same contents)
+&lt;script src=&#34;https://gist.github.com/code4rain/3104edb17699948ab829314bfce23708.js&#34;&gt;&lt;/script&gt;&lt;/li&gt;
+&lt;li&gt;make &lt;code&gt;post-rewrite&lt;/code&gt; as below
+&lt;script src=&#34;https://gist.github.com/code4rain/66ac28c0b4256308808a351d71d1aed0.js&#34;&gt;&lt;/script&gt;&lt;/li&gt;
+&lt;li&gt;run below command to add default git template.
+&lt;script src=&#34;https://gist.github.com/code4rain/23f3217d2e784bc18e662ec7bf3f549f.js&#34;&gt;&lt;/script&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;refer from &lt;a href=&#34;http://tbaggery.com/2011/08/08/effortless-ctags-with-git.html&#34;&gt;Effortless Ctags with Git&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Posting to Tumblr With Emacs</title>
+      <link>/code4rain.github.io/2016/05/09/posting-to-tumblr-with-emacs/</link>
+      <pubDate>Mon, 09 May 2016 01:29:16 +0000</pubDate>
+      
+      <guid>/code4rain.github.io/2016/05/09/posting-to-tumblr-with-emacs/</guid>
+      <description>
+
+&lt;p&gt;최근에 주력 에디터를 vi에서 emacs로 변경하였습니다. emacs를 쓰면서 다양한 부가기능들을 하나씩 사용해보던 중에 tumblr post도 emacs내에서 작성할 수 있는 방법을 찾게되어 공유하고자 합니다. tumblr에 썻던 글이라 영문으로 작성되어 있습니다.&lt;/p&gt;
+
+&lt;h1 id=&#34;what-is-the-tumblesocks:5a173e80d21a4fcb5beaff0d2b4ba55a&#34;&gt;What is the tumblesocks&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/gcr/tumblesocks&#34;&gt;tumblesocks&lt;/a&gt; is the one of emacs package. It helps to post tumblr via emacs editor. You can download it from melpa, gnu and github.&lt;/p&gt;
+
+&lt;h1 id=&#34;how-to-setup:5a173e80d21a4fcb5beaff0d2b4ba55a&#34;&gt;How to setup&lt;/h1&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Download the package: simply use &lt;code&gt;M-x package-install tumblesocks&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Add the followings to your &lt;code&gt;.emcacs&lt;/code&gt;:
+&lt;pre&gt;&lt;code&gt;(require &amp;lsquo;tumblesocks)
+(setq tumblesocks-blog &amp;ldquo;YourBlogName.tumblr.com&amp;rdquo;)&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;Run &lt;code&gt;M-x tumblesocks-api-test-auth&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;tumblesocks will open the browser and access to tumblr to get auth code.&lt;/li&gt;
+&lt;li&gt;Copy the auth code and paste it to emacs prompt&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&#34;how-to-post-with-tumblesocks:5a173e80d21a4fcb5beaff0d2b4ba55a&#34;&gt;How to post with tumblesocks&lt;/h1&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Make new post: &lt;code&gt;M-x tumblesocks-compose-new-post&lt;/code&gt; or other commands.&lt;/li&gt;
+&lt;li&gt;Write the post - I recommnad &lt;em&gt;markdown&lt;/em&gt; editor.&lt;/li&gt;
+&lt;li&gt;Finish writing: &lt;code&gt;M-x tumblesocks-compose-finish&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;If you need to edit existing post, use &lt;code&gt;M-x tumblesocks-compose-edit-post&lt;/code&gt; - &lt;strong&gt;currently not working for me.&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&#34;some-commands-to-make-the-post:5a173e80d21a4fcb5beaff0d2b4ba55a&#34;&gt;Some commands to make the post&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;tumblesocks-text-post-from-region&lt;/code&gt;: Instantly create a post with the contents of region.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tumblesocks-text-post-from-buffer&lt;/code&gt;: Instantly create a post from the entire buffer&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tumblesocks-compose-new-from-region&lt;/code&gt;: Open a buffer and start writing a new post. The contents of region will be copied over.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tumblesocks-compose-new-from-highlighted-region&lt;/code&gt;: Open a buffer and start writing a new post. The contents of region will be syntax-highlighted and copied into the post as formatted HTML. This is super-useful for including source code into your tumbles.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tumblesocks-compose-insert-highlighted-region&lt;/code&gt;: Insert the syntax-highlighted region at the end of post you&amp;rsquo;re currently writing.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>AI</title>
+      <link>/code4rain.github.io/2016/03/16/ai/</link>
+      <pubDate>Wed, 16 Mar 2016 00:22:21 +0000</pubDate>
+      
+      <guid>/code4rain.github.io/2016/03/16/ai/</guid>
+      <description>&lt;p&gt;알파고와 이세돌의 대결이 최근 화제이다. 오늘로써 5판에 걸친 대국이 끝나고, 결국 4:1로 알파고의 승리로 막을 내렸다.&lt;/p&gt;
+
+&lt;p&gt;대결을 시작하기 전만 하더라도 유럽 바둑챔피온을 이긴 알파고의 수준은 프로 2단정도이며, 이세돌이 5:0으로 압승하리라는 의견을 믿고 있었지만, (명확한 근거가 있는 건 아니고 카더라통신으로..) 실제 경기에 들어가자 마자 알파고가 1승을 거두면서 내가 아는 모든 사람이 충격을 받았다.&lt;/p&gt;
+
+&lt;p&gt;그 충격이라는 단어를 좀더 살펴보자면, 웬지 멀게만 느껴졌던 인공지능이라는 단어, 웬지 SF영화에서나 나올법한 이 용어가 우리 삶과는 괴리되어 있다고 믿고 있었던 기존 상식을 파괴하는데서 발생하는 것이 아닐까 생각된다. 인공지능이란 먼 미래에 완성될 일이고 엘런 머스크가 경고하던 인공지능의 반란같은 것은 웬지 괴짜들의 상상에 지나지 않는다고 믿었던 근거없는 믿음이 이번 대결로 인해 손상되었기 때문이다. 아무리 대단한 인공지능이라할 지라도 경우의 수가 셀 수 없는 수준의 바둑에서는 직관을 가지고 있는 인간을 이길 수 없다는 믿음이다.&lt;/p&gt;
+
+&lt;p&gt;개인적으로 이번 대결을 보면서 느낀 소회 중 하나는 기계학습을 배우면서 느꼈던 감정의 연장선 상에 있다. 기계학습을 통해서 느낌 감정 중 하나는 인간이 deep learning 등과 같이 만든 학습 모델은 확률을 기반으로 만들어졌기 때문에 만들기는 인간의 손으로 만들었지만 이제 더 이상 명시적인 통제는 불가능하겠다는 점이다. 알파고와 같이 복잡한 신경망 모델을 개선하였다면 더욱 더 많은 변수가 입력되었을 테고 이를 통해서 결과를 통제하는 일은 더욱 더 어려워졌을 터이다.&lt;/p&gt;
+
+&lt;p&gt;인공지능이 임계점에 이르러 스스로를 개선할 수 있는 수준에 오르게되면 나타나게될 초지능의 단계가 어쩌면 내가 살아있는 동안에 나타날지도 모르겠다.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>TMUX - 창분할하기 &amp; 빌드걸고 퇴근하기</title>
+      <link>/code4rain.github.io/2016/03/15/tmux/</link>
+      <pubDate>Tue, 15 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/code4rain.github.io/2016/03/15/tmux/</guid>
+      <description>
+
+&lt;p&gt;TMX는 terminal multiplexer로 터미널에서 사용하는 프로그램들을 손쉽게 switch하거나 backgroud로 수행할 수 있게 도와주는 툴입니다.&lt;/p&gt;
+
+&lt;p&gt;TMUX를 사용하면&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;터미널창을 분할해서 사용할 수 있습니다. (위 그림에서는 왼쪽에는 VI, 오른쪽 위는 TIG, 오른쪽 아래는 Shell로 분할했습니다.)&lt;/li&gt;
+&lt;li&gt;Perforce Sync / 모델 빌드를 걸어두고 다음날 출근해서 확인할 수 있습니다. (session유지)
+&lt;img src=&#34;code4rain.github.io/images/tmux_preview.gif&#34; alt=&#34;preview&#34; /&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;설치방법:2a9367716efe157e70a300e7e02873db&#34;&gt;설치방법&lt;/h2&gt;
+
+&lt;h3 id=&#34;tmux최신-버전을-설치합니다:2a9367716efe157e70a300e7e02873db&#34;&gt;TMUX최신 버전을 설치합니다.&lt;/h3&gt;
+
+&lt;p&gt;(&lt;code&gt;apt-get install tmux&lt;/code&gt;로도 설치가능하지만 굉장히 오래전 버전입니다&amp;hellip;)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;To get and build the latest from version control:
+$ git clone git://git.code.sf.net/p/tmux/tmux-code tmux
+$ cd tmux
+$ sh autogen.sh
+$ ./configure &amp;amp;&amp;amp; make
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Root권한이 있는 사용자라면 &lt;code&gt;sudo make install&lt;/code&gt;로 모든 사용자가 해당 버전을 사용하게끔해 줄 수 있습니다.
+제가 설정해둔 설정파일을 사용하시면 좀 더 편할 듯싶습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;~/.tmux.conf&lt;/code&gt;로 저장하시면 됩니다.&lt;/p&gt;
+
+&lt;p&gt;VI의 color scheme이 정상적으로 동작하게끔하기 위해서 .bashrc 등에 아래 줄을 추가해둡니다.
+&lt;code&gt;alias tmux=&#39;TERM=xterm-256color tmux -2&#39;&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;사용방법:2a9367716efe157e70a300e7e02873db&#34;&gt;사용방법&lt;/h2&gt;
+
+&lt;p&gt;제 설정파일(설정파일은 포스팅 마지막에 있습니다.)을 적용했다고 가정하고 사용법을 설명드리도록 하겠습니다.
+기본적인 invoke키는 &lt;code&gt;Ctrl+b&lt;/code&gt;이지만 저는 &lt;code&gt;Ctrl+j&lt;/code&gt;로 변경해두었습니다.&lt;/p&gt;
+
+&lt;h4 id=&#34;시작하기:2a9367716efe157e70a300e7e02873db&#34;&gt;시작하기&lt;/h4&gt;
+
+&lt;dl&gt;
+&lt;dt&gt;&lt;code&gt;tmux&lt;/code&gt; 혹은 &lt;code&gt;tmux new -s &amp;lt;원하는 이름&amp;gt;&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;추후에 attache(재사용)을 하기 편하게끔 이름을 지정하시는게 좋습니다. &lt;code&gt;tmux new -s normal&lt;/code&gt;&lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;h4 id=&#34;창-분할하기:2a9367716efe157e70a300e7e02873db&#34;&gt;창 분할하기&lt;/h4&gt;
+
+&lt;p&gt;&lt;code&gt;Ctrl+j&lt;/code&gt;를 누른 후에 | 를 누르면 좌우로 분할되고,
+&lt;code&gt;Ctrl+j&lt;/code&gt;를 누른 후에 - 를 누르면 상하로 분할됩니다.&lt;/p&gt;
+
+&lt;h4 id=&#34;창-이동하기:2a9367716efe157e70a300e7e02873db&#34;&gt;창 이동하기&lt;/h4&gt;
+
+&lt;p&gt;&lt;code&gt;Ctrl+j&lt;/code&gt;를 누르고 다시 &lt;code&gt;Ctrl+j&lt;/code&gt;를 누르면 이전 창으로 돌아갑니다.
+&lt;code&gt;Ctrl+j&lt;/code&gt;를 누르고 &lt;code&gt;q&lt;/code&gt;를 누르면 창마다 숫자가 나오는데 이 때 해당 숫자를 누르면 그 창으로 이동합니다.
+&lt;img src=&#34;code4rain.github.io/images/tmux_number.gif&#34; alt=&#34;move with number&#34; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;tab-만들기:2a9367716efe157e70a300e7e02873db&#34;&gt;Tab 만들기&lt;/h4&gt;
+
+&lt;p&gt;&lt;code&gt;Ctrl+j&lt;/code&gt;를 누른 후에 &lt;code&gt;c&lt;/code&gt;를 누르면 새로운 tab이 생성됩니다.&lt;/p&gt;
+
+&lt;h4 id=&#34;tab간-이동하기:2a9367716efe157e70a300e7e02873db&#34;&gt;Tab간 이동하기&lt;/h4&gt;
+
+&lt;p&gt;&lt;code&gt;Ctrl+j&lt;/code&gt;를 누른 후에 &lt;code&gt;n&lt;/code&gt;을 누르면 다음 tab으로 이동합니다.
+&lt;code&gt;Alt+&amp;lt;숫자키&amp;gt;&lt;/code&gt;를 누르면 해당 tab으로 이동합니다.&lt;/p&gt;
+
+&lt;h4 id=&#34;창-닫기:2a9367716efe157e70a300e7e02873db&#34;&gt;창 닫기&lt;/h4&gt;
+
+&lt;p&gt;shell에서 exit명령을 입력합니다.
+&lt;code&gt;Ctrl+j&lt;/code&gt;를 누른 후에 &lt;code&gt;x&lt;/code&gt;를 누르면 해당 pane을 닫을 것인지 묻습니다. 이 때 &lt;code&gt;y&lt;/code&gt;를 선택하면 해당 창이 닫힙니다.&lt;/p&gt;
+
+&lt;h4 id=&#34;detache-attache-사용하기-build걸고-퇴근하기:2a9367716efe157e70a300e7e02873db&#34;&gt;Detache / Attache 사용하기 (build걸고 퇴근하기)&lt;/h4&gt;
+
+&lt;p&gt;tmux를 실행하고 나서 빌드를 실행합니다.
+&lt;code&gt;Ctrl+j&lt;/code&gt;를 누르고 &lt;code&gt;d&lt;/code&gt;를 누르면 [detached (from session xxx)] 라고 뜨면서 tmux를 실행하기 전 Shell로 빠져나옵니다.
+퇴근합니다.~
+다음날 와서 &lt;code&gt;tmux attach -t xxx&lt;/code&gt;를 치면 퇴근 전 화면으로 돌아갑니다.&lt;/p&gt;
+
+&lt;h4 id=&#34;zoom기능-사용하기:2a9367716efe157e70a300e7e02873db&#34;&gt;Zoom기능 사용하기&lt;/h4&gt;
+
+&lt;p&gt;tmux최신버전에는 zoom이라는 기능이 있습니다. 창을 분할해서 사용하다가 잠시 전체 화면으로 바꾸고, 다시 원래대로 돌아갈 수 있는 기능입니다.
+&lt;code&gt;Ctrl+j&lt;/code&gt;를 누른 후에 &lt;code&gt;z&lt;/code&gt;를 누르면 현재 커서가 위차한 창이 전체 화면으로 전환되고, 다시 &lt;code&gt;Ctrl+j&lt;/code&gt;를 누른 후에 &lt;code&gt;z&lt;/code&gt;를 누르면 분할되었던 상태로 돌아가게 됩니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;more:2a9367716efe157e70a300e7e02873db&#34;&gt;More&lt;/h2&gt;
+
+&lt;h3 id=&#34;제-설정에는-bash대신-zsh가-tmux로-접속하면-실행되게-되어-있습니다:2a9367716efe157e70a300e7e02873db&#34;&gt;제 설정에는 bash대신 zsh가 tmux로 접속하면 실행되게 되어 있습니다.&lt;/h3&gt;
+
+&lt;p&gt;해당 설정을 원래대로 bash로 변경하고 싶으시면 &lt;code&gt;~/.tmux.conf&lt;/code&gt;에서&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;     # set-option -g default-command &amp;quot;bash&amp;quot;
+     set-option -g default-command &amp;quot;zsh&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;zsh 부부분을 주석처리하시고 bash부분을 주석해제 해주시면 됩니다. (#은 주석처리입니다.)&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;tmux에 간단한 설명은 아래를 참고하세요.
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://nodeqa.com/nodejs_ref/99&#34;&gt;http://nodeqa.com/nodejs_ref/99&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;매번 tmux를 설정하고 창을 분할하는 작업을 하게 되는데 이걸 미리 설정해서 할 수 있는 Tool도 있습니다.
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/tmuxinator/tmuxinator&#34;&gt;https://github.com/tmuxinator/tmuxinator&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;저도 설정해서 쓰고 있는데 mux session-name으로 간단히 new/attache를 할 수 있어서 편합니다.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;tmux-conf:2a9367716efe157e70a300e7e02873db&#34;&gt;.tmux.conf&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;.tmumx.conf&lt;/code&gt;파일입니다. 아래 파일을 &lt;code&gt;~/.tmux.conf&lt;/code&gt;로 저장하시면 됩니다.&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/code4rain/374c53829bea88cbe328.js&#34;&gt;&lt;/script&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Restart blogging</title>
+      <link>/code4rain.github.io/2016/03/14/move-jekyll/</link>
+      <pubDate>Mon, 14 Mar 2016 20:09:55 +0000</pubDate>
+      
+      <guid>/code4rain.github.io/2016/03/14/move-jekyll/</guid>
+      <description>&lt;p&gt;기존에는 tistory나 wordpress와 같은 블로깅툴을 사용하고 있었다. (많이 쓰지는 않고 있었지만…)&lt;/p&gt;
+
+&lt;p&gt;하지만 해당 툴을 사용하게 되면 특정 웹사이트로 접속해서 글을 남겨야하고 이 때 내가 사용하는 에디터가 아닌 웹화면에서 글을 남기는 건 좀 불편한 일이었다. 물론 에디터에서 수정하고 복붙하는 방법도 있지만 웬지 귀찮아져서 잘하지 않게 되었다.&lt;/p&gt;
+
+&lt;p&gt;덕분에 글을 쓰는 양 자체가 많이 줄게 되서 블로깅 자체를 하지않는 수준에 까지 이르르게 되서 가끔씩 예전에 정리해뒀던 글을 올리는 것외에는 잘하지 않게 되었다.&lt;/p&gt;
+
+&lt;p&gt;그러다가 얼마전에 에디터를 emcas로 변경하면서 자주 글을 쓰자고 마음을 먹었고 그 일환의 하나로 블로깅을 다시 시작해보려고 한다.&lt;/p&gt;
+
+&lt;p&gt;Let’s write &amp;amp; play :)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Migrated From Vim to Emacs</title>
+      <link>/code4rain.github.io/2016/03/14/migrated-from-vim-to-emacs/</link>
+      <pubDate>Mon, 14 Mar 2016 19:30:27 +0000</pubDate>
+      
+      <guid>/code4rain.github.io/2016/03/14/migrated-from-vim-to-emacs/</guid>
+      <description>
+
+&lt;p&gt;프로그래머 세계에서 끊이지 않는 논쟁 중 하나는 어떤 에디터를 사용하는 지에 관한 논쟁이다.
+세상에 있는 수많은 에디터와 그 에디터들을 찬양하는 수많은 글들을 읽다가 보면 과연 어떠한 에디터가 최고의 에디터인지에 대해 혼란해지기도 한다.&lt;/p&gt;
+
+&lt;p&gt;이러한 에디터 논쟁에서 빠지지 않고 그 자리를 차지하는 두 가지 에디터가 있다.
+vi, 혹은 그 변형인 vim과 emacs이다.&lt;/p&gt;
+
+&lt;p&gt;두 가지 에디터 모두 오랜 역사를 가지고 있고, 오랜 시간 동안 사람들의 사랑을 받을 만한 많은 장점이 있다.&lt;/p&gt;
+
+&lt;p&gt;공통된 장점으로 보자면 에디터의 기능을 확장시킬 수 있는 수많은 플러그인이 존재한다는 점을 들 수 있다. 두 에디터 단순한 에디터라기 보다는 일종의 플랫폼으로 동작하여 수많은 플러그인을 활용하여 스스로의 기능을 발전시켜왔다.&lt;/p&gt;
+
+&lt;p&gt;vi의 경우를 보자면 특이한 키맵과 편집모드가 있다. 초심자에게, 특히나 GUI로 컴퓨터를 접하기 시작한 사람들에게는 괴랄한 인터페이스가 초기 진입장벽을 만들지만 한 번 익숙해지면 마우스 없이 키보드에서 손을 거의 떼지않고 문서 편집을 할 수 있다는 장점때문에 vi의 신봉자로 거듭나게 된다. 나 역시 초기의 어려움을 극복(?)하고 나서부터는 거의 모든 편집을 vi를 사용하거나 에디터에 있는 키맵을 수정하여 vi와 비슷하게 맞추게 되어버렸다.&lt;/p&gt;
+
+&lt;p&gt;emacs의 경우는 일종의 편집기라기 보다는 플랫폼이라는 말이 어울릴 정도로 프로그래머에게 높은 자유도와 확장성을 제공한다. 하지만 이러한 확장성은 lisp라는 언어를 배우고 그에 맞게 자신이 커스터마이즈해야하는 노력과 시간이 많이 들어가는 까다로움도 동시에 존재했다. 사실 나도 vi를 배우기 시작할 때 또 다른 옵션의 하나로 emacs를 고려했지만 초기 설정의 어려움으로 인해서 결국 적응하지 못하고 포기한 바 있다.&lt;/p&gt;
+
+&lt;p&gt;하지만 시간이 흐르고 vi에 익숙해지면서 vi로 할 수 있는 기능의 제약성을 조금씩 느끼기 시작했다. 아무래도 vi가 가진 에디터라는 한계로 인해 다양한 다른 툴과 연계를 해야하지만 이러한 과정에서 나타나는 인터페이스의 비일관성과 귀찮음이 점점 커져가고 있었던 것이다. 이러한 도중에 Youtube에서 보게된 &lt;a href=&#34;https://www.youtube.com/watch?v=JWD1Fpdd4Pc&#34;&gt;Evil Mode: Or, How I Learned to Stop Worrying and Love Emacs&lt;/a&gt;라는 동영상은 emacs에 대한 관심을 다시 불러일으키게 되었다.
+기존 vi사용자를 위해 emacs에 추가된 evil package는 vi keymap때문에 못 옮긴다는 핑계를 날려주었고, 초기 설정의 복잡함은 &lt;a href=&#34;https://github.com/syl20bnr/spacemacs&#34;&gt;spacemacs&lt;/a&gt;라는 프로젝트 덕분에 명령어 몇 줄과 설정파일 수정 몇 줄을 통해서 간단히 해결되게 되었다.&lt;/p&gt;
+
+&lt;p&gt;덕분에 지금은 윈도우를 켜자마자 emacs를 켜고 파일 편집, 논문 작성, 블로그 작성, todo list관리를 하나의 에디터에서 수행할 수 있게 되었다.&lt;/p&gt;
+
+&lt;h1 id=&#34;recommand-for-previous-vimer:a373a0ba38f845cd6acee9dc70b211da&#34;&gt;recommand for previous vimer&lt;/h1&gt;
+
+&lt;ol&gt;
+&lt;li&gt;evil package를 설치하자.&lt;/li&gt;
+&lt;li&gt;기왕이면 spacemacs를 통채로 설치하면 초기 설정이 편하다. (spacemacs의 기본 keymap은 vim을 base로 한다.)&lt;/li&gt;
+&lt;li&gt;emacs 첫 구동에는 시간이 걸린다. 하지만 종료를 하지 않으면 된다…&lt;/li&gt;
+&lt;li&gt;todo 관리를 위해서 org모드 사용법은 배워두면 좋다.&lt;/li&gt;
+&lt;li&gt;vi에서 사용하던 플러그인은 대부분 찾아보면 다 있다. (더 좋은 경우가 많다.)&lt;/li&gt;
+&lt;li&gt;windows용 gvim보다 emacs가 linux/windows를 가리지 않는 호환성이 더 좋다. (애초에 거의 모든 기능이 자체적으로 구현되어 있다.)&lt;/li&gt;
+&lt;li&gt;lifetime editor로 emacs는 좋은 선택이다.&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Change Outlook Subject with Python</title>
+      <link>/code4rain.github.io/2012/12/27/change-outlook-subject-with-python/</link>
+      <pubDate>Thu, 27 Dec 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/code4rain.github.io/2012/12/27/change-outlook-subject-with-python/</guid>
+      <description>
+
+&lt;h2 id=&#34;introduction:8c92298222cc05cc21303af66ac31b93&#34;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;직장에 다니게 되면서 e-mail은 뗄레야 뗄 수 없는 사이가 되었습니다. 업무지시부터 각종 정보에 이르기까지 모든 것이 e-mail을 통해서 전달되기 때문이죠. 그런데 회사 메일은 받은 편지함 공간에 제약이 있었습니다. 읽지 않은 메일은 2주간, 읽은 메일은 1주일간만 보관 가능했습니다. 워낙 많은 사람들이 쓰고 있어서 공간제약은 어쩔 수 없는 면이 있죠. 그래서 대부분 선배, 동료, 후배들은 백업 용도로 아웃룩을 사용하고 있습니다. 출장 나가서 본 많은 주재원분들이나 업체에서는 아웃룩을 메인으로 쓰지만 회사 내부 규정상 아웃룩 발신을 제한하고 있어서 우리 회사에서는 메인보다는 백업용도로 사용하고 있습니다.&lt;/p&gt;
+
+&lt;p&gt;아웃룩 2003까지는 뭐 그러려니 하고 search plugin을 설치해서 쓰고 있다가, 2010에 &lt;a href=&#34;http://support.microsoft.com/kb/2274243/ko&#34;&gt;conversation view(대화보기)&lt;/a&gt;라는 기능이 추가된 것을 알게 되었습니다. 메일 제목을 기준으로(엄밀히 이야기하면 메일 제목은 아닙니다만) 메일을 묶어주는 기능입니다.&lt;/p&gt;
+
+&lt;p&gt;하루에 오는 메일들이 대부분 Reply나 Foword 형식이기 때문에 이 기능을 쓰게 되면 하루에 오는 몇 백통의 메일을 몇 십개 Thread로 묶어서 보여주는 효과가 있습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;오호라~!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;하지만 난관에 봉착합니다. 이 기능은 아웃룩에서 수발신한 메일들만 묶어줍니다. 회사메일에서 reply, foword를 하게되면 다른 conversation subject를 가진 메일로 인식하고 묶어주질 못하는 거죠.&lt;/p&gt;
+
+&lt;p&gt;SW engineer가 이대로 포기할 순 없어서 검색해보기 시작합니다.&lt;/p&gt;
+
+&lt;p&gt;우리의 친구 Google과 stackoverflow를 찾아보다가 &lt;a href=&#34;http://stackoverflow.com/questions/1440233/possible-to-intercept-and-rewrite-email-on-outlook-client-side-using-ironpython&#34;&gt;힌트&lt;/a&gt;를 발견합니다.
+Python으로 뭔가 쿵짝쿵짝하면 될 것같은 느낌이 듭니다. 오호~&lt;/p&gt;
+
+&lt;p&gt;열심히 스크립트도 만들고 수정해봅니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;뭔가 되는 듯하더니 안됩니다.ㅠㅠ&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;음 다시 Google과 stackoverflow를 뒤져봅니다.
+&lt;a href=&#34;http://msdn.microsoft.com/en-us/library/office/ff869318.aspx&#34;&gt;MSDN&lt;/a&gt;에 나온 걸 보니 conversationTopic을 변경이 안된다고 합니다. - READ Only attribute.&lt;/p&gt;
+
+&lt;p&gt;이런&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;하지만 또 뒤져봅니다.&lt;/p&gt;
+
+&lt;p&gt;&amp;hellip; (_ _) (- - ) ( - -)&lt;/p&gt;
+
+&lt;p&gt;걸렸습니다. Redemption DLL을 깔면 수정할 수 있답니다. (오예~)&lt;/p&gt;
+
+&lt;p&gt;그래서 기존에 온 메일을 일괄 정리하는 스크립트를 만듭니다. 쓱싹쓱싹 돌 때 심심하니 메일 하나를 처리하면 .하나를 찍어주도록 합니다.
+다 되고 나서 Conversation View로 바꿔봅니다.&lt;/p&gt;
+
+&lt;p&gt;&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;잘됩니다.ㅋㅋㅋㅋ&lt;/p&gt;
+
+&lt;p&gt;이제 매번 스크립트를 돌리기가 귀찮아집니다. 보통은 여기까지하고 그만두지만, 이번엔 아웃룩 VBA까지 건들여봅니다. 뚝딱뚝딱&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;이힝~&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;이제 메일이 오면 자동으로 정리해주도록 변경합니다. 아.. 내가 만든 VBA스크립트는 인증받지 않은 스크립트라 보안을 해제해줘야 합니다.
+설마 회사에 스팸용 VBA 스크립트가 들어오진 않을테니, 보안담당자를 믿고 보안도 해제합니다.&lt;/p&gt;
+
+&lt;p&gt;길고긴 삽질이 끝났습니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;설치-방법:8c92298222cc05cc21303af66ac31b93&#34;&gt;설치 방법&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Download and install&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Windows용 Python을 설치합니다.&lt;/li&gt;
+&lt;li&gt;Python은 Outlook을 32bit을 설치했으면 32bit을, 64bit을 설치했으면 64bit을 설치합니다.
+
+&lt;ul&gt;
+&lt;li&gt;Python Download : &lt;a href=&#34;http://www.python.org/ftp/python/2.7.5/python-2.7.5.msi&#34;&gt;2.7.5 32bit&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Python용 win32 library도 다운받습니다. : &lt;a href=&#34;http://sourceforge.net/projects/pywin32/files/pywin32/Build%20218/pywin32-218.win32-py2.7.exe/download&#34;&gt;pywin32-218.win32-py2.7.exe&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Redemption DLL도 설치합니다. (설치가 잘 안되면 관리자 권한으로 설치합니다.) : &lt;a href=&#34;http://www.dimastr.com/redemption/Redemption.zip&#34;&gt;Redemption&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;기존 메일을 정리하는 스크립트&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;스크립트를 작성합니다. 아래 내용을 복붙해서 conversation.py로 만듭니다.
+python이 제대로 설치되었다면 conversation.py를 double click하면 잘 실행이 됩니다.
+&lt;script src=&#34;https://gist.github.com/code4rain/28057bc26d7ba343e59f.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;메일이 오면 자동으로 변경해주는 건 VBA스크립트를 만들어야 합니다.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>PUSH된 COMMIT내용 수정하기(Gerrit Review전)</title>
+      <link>/code4rain.github.io/2012/12/14/pushdoen-commitnaeyong-sujeonghagi-gerrit-reviewjeon/</link>
+      <pubDate>Fri, 14 Dec 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/code4rain.github.io/2012/12/14/pushdoen-commitnaeyong-sujeonghagi-gerrit-reviewjeon/</guid>
+      <description>
+
+&lt;p&gt;Git에서 수정하고 Gerrit에 Push를 하였으나 아직 Review가 끝나지 않아 Merge되지 않은 상태에서 Commit을 수정해서 다시 Gerrit에 Patch #2로 올리는 간단한 방법을 설명한다.&lt;/p&gt;
+
+&lt;p&gt;수정하고 싶은 commit이 현재 HEAD일 경우입니다.&lt;/p&gt;
+
+&lt;h1 id=&#34;comit에-있는-일부-파일만-변경하고-싶을-때:c4c1d20b50e2e16d131dccbef23d36de&#34;&gt;comit에 있는 일부 파일만 변경하고 싶을 때&lt;/h1&gt;
+
+&lt;ol&gt;
+&lt;li&gt;수정하고 싶은 파일(a.c) 편집&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git add a.c&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git commit --amend -C HEAD&lt;/code&gt; // -C옵션은 HEAD에 있는 commit 내용을 그대로 사용한다는 의미입니다. 고로 Change Id도 유지되겠죠.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git push&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&#34;commit에-있는-파일-중-하나를-이전으로-돌리고-싶을-떄:c4c1d20b50e2e16d131dccbef23d36de&#34;&gt;commit에 있는 파일 중 하나를 이전으로 돌리고 싶을 떄&lt;/h1&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;git checkout HEAD^&lt;/code&gt; &amp;ndash; &amp;lt;돌리고 싶은 파일명&amp;gt; // HEAD^는 현재 HEAD 바로 전 commit 내용을 기준으로 돌리겠다는 의미. HEAD^ 위치에 원하는 Commit의 SHA ID를 써주어도 됨.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git add &amp;lt;돌리고 싶은 파일명&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git commit --amend -C HEAD&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git push&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Gvim 기본 시작 위치 변경</title>
+      <link>/code4rain.github.io/2012/12/13/gvim-gibon-sijag-wici-byeongyeong/</link>
+      <pubDate>Thu, 13 Dec 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/code4rain.github.io/2012/12/13/gvim-gibon-sijag-wici-byeongyeong/</guid>
+      <description>&lt;p&gt;Windows에 설치된 Gvim을 메뉴에서 실행하게 되면 기본 저장 위치는 gvim이 시작된 위치로 저장된다.
+예를 들면 &lt;code&gt;:w test.md&lt;/code&gt;라고 명령을 주는 경우에 내 PC의 경우에는 c:\windows\system 폴더에 test.md 파일이 저장이 된다.&lt;/p&gt;
+
+&lt;p&gt;이것을 해결하기 위해서는 메뉴에 있는 gvim icon에서 오른쪽 마우스버튼을 눌러 속성창을 띄우고 나서 &lt;code&gt;시작 위치(S):&lt;/code&gt;에 자신이 원하는 디렉토리를 아래처럼 추가시켜준다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;code4rain.github.io/images/gvim_cap00.png&#34; alt=&#34;Gvim short cut sample&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

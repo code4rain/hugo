@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.15" />
+
+  <title>Change Outlook Subject with Python &middot; Alex Kyoungdon Jang&#39;s Blog</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="code4rain.github.io/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="code4rain.github.io/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="code4rain.github.io/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="code4rain.github.io/code4rain.github.ioimg/favicon.ico" type="image/x-icon" />
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="code4rain.github.io/">Blackburn</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="code4rain.github.io/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="code4rain.github.io/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="code4rain.github.io/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/code4rain" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Change Outlook Subject with Python</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>27 Dec 2012, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  
+
+<h2 id="introduction:8c92298222cc05cc21303af66ac31b93">Introduction</h2>
+
+<p>직장에 다니게 되면서 e-mail은 뗄레야 뗄 수 없는 사이가 되었습니다. 업무지시부터 각종 정보에 이르기까지 모든 것이 e-mail을 통해서 전달되기 때문이죠. 그런데 회사 메일은 받은 편지함 공간에 제약이 있었습니다. 읽지 않은 메일은 2주간, 읽은 메일은 1주일간만 보관 가능했습니다. 워낙 많은 사람들이 쓰고 있어서 공간제약은 어쩔 수 없는 면이 있죠. 그래서 대부분 선배, 동료, 후배들은 백업 용도로 아웃룩을 사용하고 있습니다. 출장 나가서 본 많은 주재원분들이나 업체에서는 아웃룩을 메인으로 쓰지만 회사 내부 규정상 아웃룩 발신을 제한하고 있어서 우리 회사에서는 메인보다는 백업용도로 사용하고 있습니다.</p>
+
+<p>아웃룩 2003까지는 뭐 그러려니 하고 search plugin을 설치해서 쓰고 있다가, 2010에 <a href="http://support.microsoft.com/kb/2274243/ko">conversation view(대화보기)</a>라는 기능이 추가된 것을 알게 되었습니다. 메일 제목을 기준으로(엄밀히 이야기하면 메일 제목은 아닙니다만) 메일을 묶어주는 기능입니다.</p>
+
+<p>하루에 오는 메일들이 대부분 Reply나 Foword 형식이기 때문에 이 기능을 쓰게 되면 하루에 오는 몇 백통의 메일을 몇 십개 Thread로 묶어서 보여주는 효과가 있습니다.</p>
+
+<p><strong>오호라~!</strong></p>
+
+<p>하지만 난관에 봉착합니다. 이 기능은 아웃룩에서 수발신한 메일들만 묶어줍니다. 회사메일에서 reply, foword를 하게되면 다른 conversation subject를 가진 메일로 인식하고 묶어주질 못하는 거죠.</p>
+
+<p>SW engineer가 이대로 포기할 순 없어서 검색해보기 시작합니다.</p>
+
+<p>우리의 친구 Google과 stackoverflow를 찾아보다가 <a href="http://stackoverflow.com/questions/1440233/possible-to-intercept-and-rewrite-email-on-outlook-client-side-using-ironpython">힌트</a>를 발견합니다.
+Python으로 뭔가 쿵짝쿵짝하면 될 것같은 느낌이 듭니다. 오호~</p>
+
+<p>열심히 스크립트도 만들고 수정해봅니다.</p>
+
+<p><strong>뭔가 되는 듯하더니 안됩니다.ㅠㅠ</strong></p>
+
+<p>음 다시 Google과 stackoverflow를 뒤져봅니다.
+<a href="http://msdn.microsoft.com/en-us/library/office/ff869318.aspx">MSDN</a>에 나온 걸 보니 conversationTopic을 변경이 안된다고 합니다. - READ Only attribute.</p>
+
+<p>이런&hellip;</p>
+
+<p>하지만 또 뒤져봅니다.</p>
+
+<p>&hellip; (_ _) (- - ) ( - -)</p>
+
+<p>걸렸습니다. Redemption DLL을 깔면 수정할 수 있답니다. (오예~)</p>
+
+<p>그래서 기존에 온 메일을 일괄 정리하는 스크립트를 만듭니다. 쓱싹쓱싹 돌 때 심심하니 메일 하나를 처리하면 .하나를 찍어주도록 합니다.
+다 되고 나서 Conversation View로 바꿔봅니다.</p>
+
+<p>&hellip;</p>
+
+<p>잘됩니다.ㅋㅋㅋㅋ</p>
+
+<p>이제 매번 스크립트를 돌리기가 귀찮아집니다. 보통은 여기까지하고 그만두지만, 이번엔 아웃룩 VBA까지 건들여봅니다. 뚝딱뚝딱</p>
+
+<p><strong>이힝~</strong></p>
+
+<p>이제 메일이 오면 자동으로 정리해주도록 변경합니다. 아.. 내가 만든 VBA스크립트는 인증받지 않은 스크립트라 보안을 해제해줘야 합니다.
+설마 회사에 스팸용 VBA 스크립트가 들어오진 않을테니, 보안담당자를 믿고 보안도 해제합니다.</p>
+
+<p>길고긴 삽질이 끝났습니다.</p>
+
+<h2 id="설치-방법:8c92298222cc05cc21303af66ac31b93">설치 방법</h2>
+
+<ol>
+<li><p>Download and install</p>
+
+<ul>
+<li>Windows용 Python을 설치합니다.</li>
+<li>Python은 Outlook을 32bit을 설치했으면 32bit을, 64bit을 설치했으면 64bit을 설치합니다.
+
+<ul>
+<li>Python Download : <a href="http://www.python.org/ftp/python/2.7.5/python-2.7.5.msi">2.7.5 32bit</a></li>
+<li>Python용 win32 library도 다운받습니다. : <a href="http://sourceforge.net/projects/pywin32/files/pywin32/Build%20218/pywin32-218.win32-py2.7.exe/download">pywin32-218.win32-py2.7.exe</a></li>
+</ul></li>
+<li>Redemption DLL도 설치합니다. (설치가 잘 안되면 관리자 권한으로 설치합니다.) : <a href="http://www.dimastr.com/redemption/Redemption.zip">Redemption</a></li>
+</ul></li>
+
+<li><p>기존 메일을 정리하는 스크립트</p></li>
+</ol>
+
+<p>스크립트를 작성합니다. 아래 내용을 복붙해서 conversation.py로 만듭니다.
+python이 제대로 설치되었다면 conversation.py를 double click하면 잘 실행이 됩니다.
+<script src="https://gist.github.com/code4rain/28057bc26d7ba343e59f.js"></script></p>
+
+<p>메일이 오면 자동으로 변경해주는 건 VBA스크립트를 만들어야 합니다.</p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="code4rain.github.io/code4rain.github.io/2012/12/14/pushdoen-commitnaeyong-sujeonghagi-gerrit-reviewjeon/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="code4rain.github.io/code4rain.github.io/2012/12/14/pushdoen-commitnaeyong-sujeonghagi-gerrit-reviewjeon/">PUSH된 COMMIT내용 수정하기(Gerrit Review전)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="code4rain.github.io/code4rain.github.io/2016/03/14/migrated-from-vim-to-emacs/">Migrated From Vim to Emacs</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="code4rain.github.io/code4rain.github.io/2016/03/14/migrated-from-vim-to-emacs/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'code4rainblog';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="code4rain.github.io/code4rain.github.iojs/ui.js"></script>
+
+
+
+
+</body>
+</html>
+

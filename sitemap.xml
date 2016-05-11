@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>/code4rain.github.io/</loc>
+    <lastmod>2016-05-09T04:11:32+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/code4rain.github.io/2016/05/09/scripts-for-jekyll-and-octopress/</loc>
+    <lastmod>2016-05-09T04:11:32+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/code4rain.github.io/2016/05/09/update-generate-gtags-with-git-update/</loc>
+    <lastmod>2016-05-09T03:07:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/code4rain.github.io/2016/05/09/posting-to-tumblr-with-emacs/</loc>
+    <lastmod>2016-05-09T01:29:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/code4rain.github.io/2016/03/16/ai/</loc>
+    <lastmod>2016-03-16T00:22:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/code4rain.github.io/2016/03/15/tmux/</loc>
+    <lastmod>2016-03-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/code4rain.github.io/2016/03/14/move-jekyll/</loc>
+    <lastmod>2016-03-14T20:09:55+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/code4rain.github.io/2016/03/14/migrated-from-vim-to-emacs/</loc>
+    <lastmod>2016-03-14T19:30:27+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/code4rain.github.io/2012/12/27/change-outlook-subject-with-python/</loc>
+    <lastmod>2012-12-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/code4rain.github.io/2012/12/14/pushdoen-commitnaeyong-sujeonghagi-gerrit-reviewjeon/</loc>
+    <lastmod>2012-12-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/code4rain.github.io/2012/12/13/gvim-gibon-sijag-wici-byeongyeong/</loc>
+    <lastmod>2012-12-13T00:00:00+00:00</lastmod>
+  </url>
+  
+</urlset>

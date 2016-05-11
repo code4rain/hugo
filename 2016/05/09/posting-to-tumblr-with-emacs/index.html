@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.15" />
+
+  <title>Posting to Tumblr With Emacs &middot; Alex Kyoungdon Jang&#39;s Blog</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="code4rain.github.io/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="code4rain.github.io/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="code4rain.github.io/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="code4rain.github.io/code4rain.github.ioimg/favicon.ico" type="image/x-icon" />
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="code4rain.github.io/">Blackburn</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="code4rain.github.io/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="code4rain.github.io/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="code4rain.github.io/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/code4rain" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Posting to Tumblr With Emacs</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>09 May 2016, 01:29</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  
+
+<p>최근에 주력 에디터를 vi에서 emacs로 변경하였습니다. emacs를 쓰면서 다양한 부가기능들을 하나씩 사용해보던 중에 tumblr post도 emacs내에서 작성할 수 있는 방법을 찾게되어 공유하고자 합니다. tumblr에 썻던 글이라 영문으로 작성되어 있습니다.</p>
+
+<h1 id="what-is-the-tumblesocks:5a173e80d21a4fcb5beaff0d2b4ba55a">What is the tumblesocks</h1>
+
+<p><a href="https://github.com/gcr/tumblesocks">tumblesocks</a> is the one of emacs package. It helps to post tumblr via emacs editor. You can download it from melpa, gnu and github.</p>
+
+<h1 id="how-to-setup:5a173e80d21a4fcb5beaff0d2b4ba55a">How to setup</h1>
+
+<ol>
+<li>Download the package: simply use <code>M-x package-install tumblesocks</code></li>
+<li>Add the followings to your <code>.emcacs</code>:
+<pre><code>(require &lsquo;tumblesocks)
+(setq tumblesocks-blog &ldquo;YourBlogName.tumblr.com&rdquo;)</code></pre></li>
+<li>Run <code>M-x tumblesocks-api-test-auth</code></li>
+<li>tumblesocks will open the browser and access to tumblr to get auth code.</li>
+<li>Copy the auth code and paste it to emacs prompt</li>
+</ol>
+
+<h1 id="how-to-post-with-tumblesocks:5a173e80d21a4fcb5beaff0d2b4ba55a">How to post with tumblesocks</h1>
+
+<ol>
+<li>Make new post: <code>M-x tumblesocks-compose-new-post</code> or other commands.</li>
+<li>Write the post - I recommnad <em>markdown</em> editor.</li>
+<li>Finish writing: <code>M-x tumblesocks-compose-finish</code></li>
+<li>If you need to edit existing post, use <code>M-x tumblesocks-compose-edit-post</code> - <strong>currently not working for me.</strong></li>
+</ol>
+
+<h1 id="some-commands-to-make-the-post:5a173e80d21a4fcb5beaff0d2b4ba55a">Some commands to make the post</h1>
+
+<ul>
+<li><code>tumblesocks-text-post-from-region</code>: Instantly create a post with the contents of region.</li>
+<li><code>tumblesocks-text-post-from-buffer</code>: Instantly create a post from the entire buffer</li>
+<li><code>tumblesocks-compose-new-from-region</code>: Open a buffer and start writing a new post. The contents of region will be copied over.</li>
+<li><code>tumblesocks-compose-new-from-highlighted-region</code>: Open a buffer and start writing a new post. The contents of region will be syntax-highlighted and copied into the post as formatted HTML. This is super-useful for including source code into your tumbles.</li>
+<li><code>tumblesocks-compose-insert-highlighted-region</code>: Insert the syntax-highlighted region at the end of post you&rsquo;re currently writing.</li>
+</ul>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="code4rain.github.io/code4rain.github.io/2016/03/16/ai/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="code4rain.github.io/code4rain.github.io/2016/03/16/ai/">AI</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="code4rain.github.io/code4rain.github.io/2016/05/09/update-generate-gtags-with-git-update/">Update/Generate GTAGS With Git Update</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="code4rain.github.io/code4rain.github.io/2016/05/09/update-generate-gtags-with-git-update/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'code4rainblog';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="code4rain.github.io/code4rain.github.iojs/ui.js"></script>
+
+
+
+
+</body>
+</html>
+
