@@ -12,10 +12,10 @@ paginate = 10
 
 [params]
   # Shown in the home page
-  subtitle = "A Hugo Theme"
-  brand = "Blackburn"
+#  subtitle = "A Hugo Theme"
+# brand = ""
   # googleAnalytics = "Your Google Analytics tracking ID"
-  disqus = "code4rainblog"
+  disqus = "code4rainsblog"
   # CSS name for highlight.js
   highlightjs = "androidstudio"
   dateFormat = "02 Jan 2006, 15:04"
