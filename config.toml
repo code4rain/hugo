@@ -1,8 +1,8 @@
-baseurl = "http://code4rain.github.io/"
-title = "Alex Kyoungdon Jang's Blog"
-author = "Alex kyoungodn Jang"
-# Shown in the side menu
-copyright = "&copy; 2016. All rights reserved."
+baseURL = "http://code4rain.github.io/"
+languageCode = "ko-KR"
+title = "Code Rain"
+theme = "blackburn"
+
 canonifyurls = true
 paginate = 10
 
@@ -12,12 +12,13 @@ paginate = 10
 
 [params]
   # Shown in the home page
-#  subtitle = "A Hugo Theme"
-# brand = ""
+  subtitle = "Alex Kyoungdon Jang"
+  brand = "CODE RAIN"
   # googleAnalytics = "Your Google Analytics tracking ID"
   disqus = "code4rainsblog"
   # CSS name for highlight.js
   highlightjs = "androidstudio"
+  highlightjs_extra_languages = ["yaml"]
   dateFormat = "02 Jan 2006, 15:04"
 
 [menu]
@@ -25,55 +26,19 @@ paginate = 10
   [[menu.main]]
     name = "Home"
     pre = "<i class='fa fa-home fa-fw'></i>"
-    weight = 0
+    weight = 1
     identifier = "home"
     url = "/"
   [[menu.main]]
     name = "Posts"
     pre = "<i class='fa fa-list fa-fw'></i>"
-    weight = 1
+    weight = 2
     identifier = "post"
     url = "/post/"
   [[menu.main]]
-    name = "About"
-    pre = "<i class='fa fa-user fa-fw'></i>"
+    name = "Tags"
+    pre = "<i class='fa fa-tag fa-fw'></i>"
     weight = 2
-    identifier = "about"
-    url = "/about/"
-#  [[menu.main]]
-#    name = "Contact"
-#    pre = "<i class='fa fa-phone fa-fw'></i>"
-#    weight = 3
-#    url = "/contact/"
+    identifier = "tags"
+    url = "/tags/"
 
-[social]
-  # Link your social networking accouns to the side menu
-  # by entering your username or ID.
-
-  # SNS microblogging
-#  twitter = "*"
-#  facebook = "*"
-#  googleplus = "*"
-#  weibo = "*"
-
-  # SNS photo/video sharing
-#  instagram = "*"
-#  flickr = "*"
-#  pinterest = "*"
-#  youtube = "*"
-#  vimeo = "*"
-#  vine = "*"
-#  slideshare = "*"
-
-  # SNS career oriented
-#  linkedin = "*"
-#  xing = "*"
-
-  # SNS news
-#  reddit = "*"
-#  hackernews = "*"
-
-  # Techie
-  github = "code4rain"
-#  bitbucket = "*"
-#  stackoverflow = "*"

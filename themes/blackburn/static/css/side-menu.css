@@ -1,5 +1,6 @@
 body {
-    color: #777;
+    color: #555;
+    font-family: "Noto Serif KR"; 
 }
 
 .pure-img-responsive {
@@ -25,6 +26,7 @@ This is the parent `<div>` that contains the menu and the content area.
 */
 #layout {
     position: relative;
+    left: 0;
     padding-left: 0;
 }
     #layout.active #menu {
@@ -43,7 +45,7 @@ The content `<div>` is where all your content goes.
     padding: 0 2em;
     max-width: 800px;
     margin-bottom: 50px;
-    line-height: 1.6em;
+    line-height: 2.2em;
 }
 
 .header {
@@ -89,6 +91,7 @@ appears on the left side of the page.
     background: #191818;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+    font-family: sans-serif;
 }
     /*
     All anchors inside the menu should be styled like this.
@@ -245,4 +248,3 @@ Hides the menu at `48em`, but modify this based on your app's needs.
         left: 150px;
     }
 }
-

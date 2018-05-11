@@ -3,11 +3,13 @@ comments: true
 date: 2012-12-14T00:00:00Z
 title: PUSH된 COMMIT내용 수정하기(Gerrit Review전)
 url: /2012/12/14/pushdoen-commitnaeyong-sujeonghagi-gerrit-reviewjeon/
+tags:
+ - git
 ---
 
-Git에서 수정하고 Gerrit에 Push를 하였으나 아직 Review가 끝나지 않아 Merge되지 않은 상태에서 Commit을 수정해서 다시 Gerrit에 Patch #2로 올리는 간단한 방법을 설명한다.
+Git에서 수정하고 Gerrit에 Push를 하였으나 아직 Review가 끝나지 않아 Merge되지 않은 상태에서 Commit을 수정해서 다시 Gerrit에 Patch #2로 올리는 간단한 방법입니다.
 
-수정하고 싶은 commit이 현재 HEAD일 경우입니다.
+아래 방법은 수정하고 싶은 commit이 현재 HEAD일 경우입니다.
 
 # comit에 있는 일부 파일만 변경하고 싶을 때
 

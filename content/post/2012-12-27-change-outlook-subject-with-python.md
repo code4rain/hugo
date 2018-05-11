@@ -3,6 +3,9 @@ comments: true
 date: 2012-12-27T00:00:00Z
 title: Change Outlook Subject with Python
 url: /2012/12/27/change-outlook-subject-with-python/
+tags:
+ - outlook
+ - python
 ---
 
 ## Introduction

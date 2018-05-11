@@ -5,7 +5,7 @@ title: Posting to Tumblr With Emacs
 url: /2016/05/09/posting-to-tumblr-with-emacs/
 ---
 
-최근에 주력 에디터를 vi에서 emacs로 변경하였습니다. emacs를 쓰면서 다양한 부가기능들을 하나씩 사용해보던 중에 tumblr post도 emacs내에서 작성할 수 있는 방법을 찾게되어 공유하고자 합니다. tumblr에 썻던 글이라 영문으로 작성되어 있습니다.
+~~최근에 주력 에디터를 vi에서 emacs로 변경하였습니다.~~(다시 vim으로 돌아왔습니다... 아직까지 적응하기가 힘드네요) emacs를 쓰면서 다양한 부가기능들을 하나씩 사용해보던 중에 tumblr post도 emacs내에서 작성할 수 있는 방법을 찾게되어 공유하고자 합니다. tumblr에 썻던 글이라 영문으로 작성되어 있습니다.
 
 # What is the tumblesocks
 
