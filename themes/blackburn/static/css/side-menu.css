@@ -46,6 +46,8 @@ The content `<div>` is where all your content goes.
     max-width: 800px;
     margin-bottom: 50px;
     line-height: 2.2em;
+    transform: rotate(-0.0000000001deg);
+    text-shadow: 0 0 1px rgba(0,0,0,0.3);
 }
 
 .header {

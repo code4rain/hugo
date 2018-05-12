@@ -1,5 +1,10 @@
 @import url(https://cdn.rawgit.com/kattergil/NotoSerifKR-Web/76eb9ebf/stylesheet/NotoSerif-Web.css);
 
+html {
+  -webkit-text-size-adjust: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 .header {
   font-family: "Noto Serif KR", "Raleway", Helvetica, Arial, sans-serif
 }
@@ -51,6 +56,8 @@ article > footer {
 
 #menu .brand {
   font-family: "Noto Serif KR", Raleway;
+  transform: rotate(-0.0000000001deg);
+  text-shadow: 0 0 1px rgba(0,0,0,0.3);
   font-weight: bold;
   font-size: 1em;
   letter-spacing: 0.1em;
